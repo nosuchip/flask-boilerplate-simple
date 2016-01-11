@@ -1,12 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  </head>
 
-  <body>
-    <h1>Error 404: Not found</h1>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <h4>{{ error }}</h4>
+  <title>{{ page_title }}</title>
 
-  </body
+  <style>
+    body {
+      background: url(/static/img/error/error-404-bg.jpg) no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+    }
+
+    header {
+      margin-top: 20%;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #dd99fc;
+      font-size: 60px;
+    }
+
+    p {
+      margin: 30px 80px;
+      color: #aa99dd;
+      font-size: 20px;
+    }
+
+    p.first {
+      margin: 0px;
+      text-align: center;
+      color: #aa99dd;
+      font-size: 24px;
+    }
+
+    a {
+      color: #77f;
+      text-decoration: none;
+      margin: 0px 10px;
+    }
+
+    @media screen and (max-device-width: 600px) {
+      body {
+        background: url(/static/img/error/error-404-bg-vertical.jpg) no-repeat center center fixed;
+        background-size: cover;
+      }
+
+      header {
+        font-size: 22px;
+      }
+
+      p {
+        margin: 20px 30px;
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      p.first {
+        margin: 20px;
+        font-size: 19px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+    <header>{{ ('Error 404: page not found') }}</header>
+    <p class="first">{{ ('What is this? Why I am here? What I am looking for?') }}</p>
+    <p>{{ ('Usually you see this page whe trying to navigate to non-existing page or to
+      the page which was here but gone for time ago. You could try to get back and select another
+      link. We already know about this issue and return your link back to life soon.') }}</p>
+
+    <p class="links">
+      <a href="javascript: window.history.go(-1)">{{ ('Previous page') }}</a>
+      |
+      <a href="/">{{ ('Index') }}</a>
+
+    </p>
+</body>
+
 </html>

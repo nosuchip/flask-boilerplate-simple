@@ -1,12 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  </head>
 
-  <body>
-    <h1>Error 500: ARRRRRRRRRRGHHHHH</h1>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <h4>{{ error }}</h4>
+  <title>{{ page_title }}</title>
 
-  </body
+  <style>
+    body {
+      background: url(/static/img/error/error-500-bg.jpg) no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+    }
+
+    header {
+      margin-top: 20%;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #dd99fc;
+      font-size: 60px;
+    }
+
+    p {
+      margin: 30px 80px;
+      color: #004499;
+      font-size: 20px;
+    }
+
+    p.first {
+      margin: 0px;
+      text-align: center;
+      color: #aa99dd;
+      font-size: 24px;
+    }
+
+    @media screen and (max-device-width: 600px) {
+      body {
+        background: url(/static/img/error/error-500-bg-vertical.jpg) no-repeat center center fixed;
+        background-size: cover;
+      }
+
+      header {
+        font-size: 22px;
+      }
+
+      p {
+        margin: 20px 30px;
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      p.first {
+        margin: 20px;
+        font-size: 19px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+    <header>{{ ('Error 500: no way!') }}</header>
+    <p class="first">{{ ('What is this?') }}</p>
+    <p>{{ ('Oops! Our site is broken now. Little dwarwes already runs with their toolboxes
+      to fix this issue. Do not try to repeat it at home!') }}</p>
+</body>
+
 </html>
