@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% set title=page_title %}
+
+    {%- block head_meta -%}
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="">
+    <meta name="description" content="{{ page_description | safe }}">
+    <meta itemprop="name" content="{{ page_title | safe }}">
+    <meta itemprop="description" content="{{ page_description | safe }}">
+    <meta name="robots" content="all" />
+    {%- endblock head_meta -%}
+
+    {%- block head_links -%}
+    {% include 'parts/favicon.html' %}
+
+    <link href="{{ url_for('default.index', _external=True) }}" rel="canonical">
+    <link rel="alternate" type="application/atom+xml" title="{{ title|safe }} - Atom" href="">
+    <link rel="alternate" type="application/rss+xml" title="{{ title|safe }} - RSS" href="">
+    <link rel="me" href="{{ url_for('default.index') }}">
+    {%- endblock head_links -%}
+
+    <title>{{ title | safe }}</title>
+
+    {%- block head_css -%}
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,700italic,300,400italic,600,600italic,400,300italic' rel='stylesheet' type='text/css'>
+    <link href="{{ url_for('static', filename='lib/bootstrap/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/css.css') }}" rel="stylesheet" type="text/css">
+    {%- endblock -%}
+
+    {%- block head -%}
+    {%- endblock -%}
+  </head>
+
+  <body class="{{ body_cls if body_cls else '' }}">
+    <div class="main-wrapper">
+      {%- block page_body -%}
+      {%- endblock page_body -%}
+
+      {# TODO: Move modal to templates.html and make it dynamic #}
+      <div data-bind="stopBinding: true">
+        <div id="message-box" class="modal fade" tabindex="-1" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" data-bind="text: title">Modal title</h4>
+              </div>
+              <div class="modal-body"><p></p></div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+      </div>
+
+    </div>
+
+    {% include 'templates.html' %}
+
+    {%- block page_javascript -%}
+    <script src="{{ url_for('static', filename='lib/knockout/knockout-3.4.0.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='lib/jquery/jquery-2.1.1.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='lib/bootstrap/js/bootstrap.js') }}" type="text/javascript"></script>
+
+    <script src="{{ url_for('static', filename='js/models.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/js.js') }}" type="text/javascript"></script>
+    {%- endblock -%}
+  </body>
+
+</html>
